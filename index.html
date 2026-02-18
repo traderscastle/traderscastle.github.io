@@ -1,222 +1,252 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Traders Castle - Professional Trading Platform</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="icon" href="fx logo.png" type="image/png">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"> <!-- For icons -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Traders Castle</title>
+
+<link rel="stylesheet" href="style.css">
+<link rel="icon" href="logoo.png" type="image/png">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
 </head>
+
 <body>
-    <header>
-        <div class="container">
-            <div class="logo">
-                <img src="logo.png" alt="Traders Castle Logo" width="150">
-            </div>
-            <nav>
-                <ul>
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#testimonials">Testimonials</a></li>
-                    <li><a href="#pricing">Pricing</a></li>
-                    <li><a href="#news">News</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
 
-    <section id="home" class="hero">
-        <div class="container">
-            <h1>Build Your Trading Empire at Traders Castle</h1>
-            <p>Unlock advanced tools, real-time insights, and expert strategies to dominate the markets. Join thousands of successful traders.</p>
-            <a href="#pricing" class="btn primary">Start Trading Now</a>
-            <a href="#services" class="btn secondary">Learn More</a>
-        </div>
-    </section>
+<header>
+<div class="container header-flex">
+<div class="logo">
+<img src="logoo.png" alt="Traders Castle Logo">
+</div>
 
-    <section id="about" class="about">
-        <div class="container">
-            <h2>About Traders Castle</h2>
-            <p>Founded in 2020, Traders Castle empowers investors with cutting-edge technology and data-driven insights. Our platform offers secure, intuitive tools for stocks, forex, crypto, and commodities, backed by a team of seasoned analysts. Whether you're hedging risks or chasing gains, we're your strategic fortress.</p>
-            <div class="stats">
-                <div class="stat"><h3>50K+</h3><p>Active Traders</p></div>
-                <div class="stat"><h3>$10B+</h3><p>Assets Managed</p></div>
-                <div class="stat"><h3>99.9%</h3><p>Uptime</p></div>
-            </div>
-        </div>
-    </section>
+<nav>
+<ul>
+<li><a href="#home">Home</a></li>
+<li><a href="#about">About</a></li>
+<li><a href="#services">Services</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+</nav>
+</div>
+</header>
 
-    <section id="services" class="services">
-        <div class="container">
-            <h2>Our Services</h2>
-            <div class="service-grid">
-                <div class="service">
-                    <i class="fas fa-chart-line"></i>
-                    <h3>Real-Time Market Data</h3>
-                    <p>Live feeds from global exchanges with customizable alerts and historical data for precise analysis.</p>
-                </div>
-                <div class="service">
-                    <i class="fas fa-robot"></i>
-                    <h3>Automated Trading Bots</h3>
-                    <p>AI-powered bots to execute trades 24/7, minimizing emotions and maximizing profits.</p>
-                </div>
-                <div class="service">
-                    <i class="fas fa-graduation-cap"></i>
-                    <h3>Educational Resources</h3>
-                    <p>Free webinars, tutorials, and mentorship from top traders to build your expertise.</p>
-                </div>
-                <div class="service">
-                    <i class="fas fa-shield-alt"></i>
-                    <h3>Secure Portfolio Management</h3>
-                    <p>Bank-level encryption and risk assessment tools to protect your investments.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+<section id="home" class="hero">
+<div class="container">
+<h1>Build Your Trading Empire</h1>
+<p>Professional tools. Real-time data. Elite trading strategies.</p>
 
-    <section id="testimonials" class="testimonials">
-        <div class="container">
-            <h2>What Our Traders Say</h2>
-            <div class="testimonial-slider">
-                <div class="testimonial active">
-                    <p>"Traders Castle turned my $5K investment into $50K in a year. The bots are game-changers!"</p>
-                    <cite>- Alex Johnson, Forex Trader</cite>
-                </div>
-                <div class="testimonial">
-                    <p>"Incredible platform with real-time data. I've never felt more confident in my trades."</p>
-                    <cite>- Maria Lopez, Crypto Investor</cite>
-                </div>
-                <div class="testimonial">
-                    <p>"The educational resources are top-notch. Perfect for beginners and pros alike."</p>
-                    <cite>- David Kim, Stock Analyst</cite>
-                </div>
-            </div>
-            <div class="slider-controls">
-                <button id="prev"><i class="fas fa-chevron-left"></i></button>
-                <button id="next"><i class="fas fa-chevron-right"></i></button>
-            </div>
-        </div>
-    </section>
+<a href="#services" class="btn primary">Start Trading</a>
+<a href="#about" class="btn secondary">Learn More</a>
+</div>
+</section>
 
-    <section id="pricing" class="pricing">
-        <div class="container">
-            <h2>Pricing Plans</h2>
-            <div class="pricing-grid">
-                <div class="plan">
-                    <h3>Starter</h3>
-                    <p class="price">$9.99/month</p>
-                    <ul>
-                        <li>Basic market data</li>
-                        <li>5 trades/day</li>
-                        <li>Email support</li>
-                    </ul>
-                    <a href="#" class="btn">Sign Up</a>
-                </div>
-                <div class="plan featured">
-                    <h3>Pro</h3>
-                    <p class="price">$29.99/month</p>
-                    <ul>
-                        <li>Advanced analytics</li>
-                        <li>Unlimited trades</li>
-                        <li>Priority support</li>
-                        <li>Bot access</li>
-                    </ul>
-                    <a href="#" class="btn primary">Get Pro</a>
-                </div>
-                <div class="plan">
-                    <h3>Elite</h3>
-                    <p class="price">$99.99/month</p>
-                    <ul>
-                        <li>All features</li>
-                        <li>Personal mentor</li>
-                        <li>Custom strategies</li>
-                        <li>24/7 phone support</li>
-                    </ul>
-                    <a href="#" class="btn">Go Elite</a>
-                </div>
-            </div>
-        </div>
-    </section>
+<section class="about-detailed">
+  <h2>About Traders Castle</h2>
 
-    <section id="news" class="news">
-        <div class="container">
-            <h2>Latest Trading News</h2>
-            <div class="news-grid">
-                <article class="news-item">
-                    <h3>Market Volatility: How to Stay Ahead</h3>
-                    <p>Insights on navigating unpredictable markets with our tools...</p>
-                    <a href="#">Read More</a>
-                </article>
-                <article class="news-item">
-                    <h3>Crypto Trends for 2023</h3>
-                    <p>Expert predictions on Bitcoin and altcoins...</p>
-                    <a href="#">Read More</a>
-                </article>
-                <article class="news-item">
-                    <h3>Tax Tips for Traders</h3>
-                    <p>Maximize deductions with our guide...</p>
-                    <a href="#">Read More</a>
-                </article>
-            </div>
-        </div>
-    </section>
+  <p>
+    Traders Castle is a professional trading and mentorship platform built to help
+    aspiring traders become confident, disciplined, and consistently profitable
+    in the financial markets.
+  </p>
+ <br>
 
-    <section id="contact" class="contact">
-        <div class="container">
-            <h2>Contact Us</h2>
-            <p>Have questions? Our team is here to help.</p>
-            <div class="contact-info">
-                <p><strong>Name:</strong> Prithviraj Patil</p>
-                <p><strong>Mobile No:</strong> [Your Mobile Number Here]</p>
-                <p><strong>Email:</strong> support@traderscastle.com</p>
-                <p><strong>Address:</strong> 123 Trading Blvd, Finance City, USA</p>
-            </div>
-            <form class="contact-form">
-                <input type="text" id="name" placeholder="Your Name" required>
-                <input type="email" id="email" placeholder="Your Email" required>
-                <textarea id="message" placeholder="Your Message" required></textarea>
-                <button type="submit" class="btn primary">Send Message</button>
-            </form>
-            <div class="newsletter">
-                <h3>Subscribe to Our Newsletter</h3>
-                <input type="email" placeholder="Enter your email">
-                <button class="btn secondary">Subscribe</button>
-            </div>
-        </div>
-    </section>
+  <p>
+    With over <strong>6+ years of real market experience</strong>, we specialize in
+    Forex, Gold (XAUUSD), and indices using advanced Smart Money Concepts,
+    market structure, and institutional trading strategies. We teach traders
+    how the market actually works — how to read charts, identify liquidity,
+    understand institutional movements, and execute trades with precision and
+    proper risk management.
+  </p>
+ <br>
 
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h4>Quick Links</h4>
-                    <ul>
-                        <li><a href="#about">About</a></li>
-                        <li><a href="#services">Services</a></li>
-                        <li><a href="#pricing">Pricing</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Follow Us</h4>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-facebook"></i></a>
-                    <a href="#"><i class="fab fa-linkedin"></i></a>
-                </div>
-                <div class="footer-section">
-                    <h4>Legal</h4>
-                    <ul>
-                        <li><a href="#">Privacy Policy</a></li>
-                        <li><a href="#">Terms of Service</a></li>
-                    </ul>
-                </div>
-            </div>
-            <p>&copy; 2023 Traders Castle. All rights reserved.</p>
-        </div>
-    </footer>
+  <p>
+    At Traders Castle, we focus not only on strategy but also on building the
+    discipline, psychology, and decision-making skills required to succeed
+    long-term in trading.
+  </p>
+<br>
 
-    <script src="script.js"></script>
+  <p>
+    We have successfully mentored <strong>100+ traders</strong>, helping them transform
+    from beginners into skilled traders through structured mentorship,
+    live market guidance, and a professional trading approach.
+  </p>
+ <br>
+
+  <p>
+    Our mission is to build a community of self-reliant and profitable traders
+    by providing the right knowledge, mentorship, and support needed to succeed independently.
+  </p>
+ <br>
+
+  <p>
+    If you are serious about becoming a profitable trader,
+    Traders Castle is the right place to start your journey.
+  </p>
+ <br>
+
+  <h3 class="about-quote">
+    Traders Castle — Where Traders Build Their Empire.
+  </h3>
+</section>
+
+
+
+<section id="services" class="services">
+<div class="container">
+<h2>Our Services</h2>
+
+<div class="grid">
+
+<div class="card">
+<i class="fas fa-chart-line"></i>
+<h3>Live Market Data</h3>
+<p>Real-time global trading insights.</p>
+</div>
+
+<div class="card">
+<i class="fas fa-robot"></i>
+<h3>Trading Bots</h3>
+<p>AI automation to maximize profits.</p>
+</div>
+
+<div class="card">
+<i class="fas fa-shield-alt"></i>
+<h3>Secure Platform</h3>
+<p>Bank-level protection and encryption.</p>
+</div>
+
+</div>
+</div>
+</section>
+
+<section class="contact-box">
+  <h2>Contact Details</h2>
+  <br>
+  <h3>Get in Touch</h3>
+
+  <p>
+    Have any queries? or want to know more?<br>
+    Contact us and we will be happy to help.
+  </p>
+ <br>
+
+  <div class="contact-item">
+    <span class="icon">📍</span>
+    <div>
+      <h4>Our Address</h4>
+      <p>Office No.-201, Back side of DP road, near Mahatre Bridge,
+        Pune 411030 </p>
+    </div>
+  </div>
+ <br>
+
+  <div class="contact-item">
+    <span class="icon">📧</span>
+    <div>
+      <h4>E-mail</h4>
+      <p>Enquiry: traderscastle1923@gmail.com</p>
+    </div>
+  </div>
+ <br>
+
+  <div class="contact-item">
+    <span class="icon">📞</span>
+    <div>
+      <h4>Contact</h4>
+      <p>Mobile: +91 7796751319</p>
+    </div>
+  </div>
+ <br>
+
+  <div class="contact-item">
+    <span class="icon">⏰</span>
+    <div>
+      <h4>Hours of Operation</h4>
+      <p>Everyday : 10:00 AM - 06:00 PM IST</p>
+    </div>
+  </div>
+</section>
+
+
+<section class="social-section">
+  <h2>Follow Us On</h2>
+
+  <div class="social-icons">
+
+    <a href="https://www.instagram.com/traderscastle.tcc?igsh=MTgyYmhrZWE3djIzZA%3D%3D&utm_source=qr"
+       target="_blank">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png"
+           alt="Instagram">
+    </a>
+
+    <a href="https://youtube.com/@traderscastle_tcc?si=_JLZuocu-6if-LmZ"
+       target="_blank">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/b/b8/YouTube_Logo_2017.svg"
+           alt="YouTube">
+    </a>
+
+    <a href="https://www.linkedin.com/in/prithviraj-patil283?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app"
+       target="_blank">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png"
+           alt="LinkedIn">
+    </a>
+ 
+    <a href="https://t.me/+WkP6NF7aiDM4NjU1" target="_blank">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg"
+       alt="Telegram">
+</a>
+
+  </div>
+</section>
+
+
+<section class="join-course">
+  <h2>Register With Traders Castle</h2>
+
+  <p>
+    Choose your preferred option below and complete the registration form.
+  </p>
+
+  <div class="join-buttons">
+
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLScNL88OUhaYzPVacDSoX3Ek4Aeznyvhp2Wrp5BrHl9HtDdigQ/viewform?usp=header"
+       target="_blank" class="join-btn">
+       Offline Course Registration
+    </a>
+
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLSd85vjMBkxZrM7-IOCk53WpL1VLHV3zO3jLyVvbnoSVouFDdA/viewform?usp=header"
+       target="_blank" class="join-btn">
+       Online Course Registration
+    </a>
+
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLSdggjKfCOUk7uVYEfM22e9YFBFQksdjceUZa-aKDZ4R_I3D3A/viewform?usp=header"
+       target="_blank" class="join-btn contact-btn">
+       Contact / Enquiry Form
+    </a>
+
+  </div>
+</section>
+
+
+
+<footer>
+<p>© 2026 Traders Castle — All rights reserved</p>
+</footer>
+
+<script src="script.js"></script>
+
+
+<a href="https://wa.me/7796751319?text=Hi%20I%20want%20course%20details"
+   class="whatsapp-float"
+   target="_blank">
+
+  <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
+       alt="WhatsApp">
+</a>
+
 </body>
 </html>
+
