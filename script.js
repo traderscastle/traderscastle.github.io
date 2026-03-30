@@ -385,3 +385,139 @@ document.querySelectorAll('.main-heading').forEach(h => {
     h.insertAdjacentElement('afterend', div);
   }
 });
+
+// ===== HAMBURGER MENU =====
+const hamburger = document.getElementById('hamburger');
+const mainNav = document.getElementById('mainNav');
+
+hamburger.addEventListener('click', () => {
+  hamburger.classList.toggle('open');
+  mainNav.classList.toggle('open');
+});
+
+// Close menu when a nav link is clicked
+document.querySelectorAll('nav a').forEach(link => {
+  link.addEventListener('click', () => {
+    hamburger.classList.remove('open');
+    mainNav.classList.remove('open');
+  });
+});
+
+// Close menu when clicking outside
+document.addEventListener('click', (e) => {
+  if (!hamburger.contains(e.target) && !mainNav.contains(e.target)) {
+    hamburger.classList.remove('open');
+    mainNav.classList.remove('open');
+  }
+});
+
+
+// ===== ANIMATED COUNTERS =====
+// counting appear for 100+ students and 50+ live session
+function animateCounter(el, target, suffix, duration) {
+  let start = null;
+  const step = timestamp => {
+    if (!start) start = timestamp;
+    const progress = Math.min((timestamp - start) / duration, 1);
+    const eased = 1 - Math.pow(1 - progress, 3);
+    el.textContent = Math.floor(eased * target) + suffix;
+    if (progress < 1) requestAnimationFrame(step);
+  };
+  requestAnimationFrame(step);
+}
+
+window.addEventListener('load', () => {
+  document.querySelectorAll('.highlight-box h3').forEach(el => {
+    const text = el.textContent.trim();
+
+    // Store original value as data attribute
+    if (text === '100+') {
+      el.dataset.target = '100';
+      el.dataset.suffix = '+';
+    } else if (text === '50+') {
+      el.dataset.target = '50';
+      el.dataset.suffix = '+';
+    }
+  });
+
+  const counterObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const el = entry.target;
+        const target = parseInt(el.dataset.target);
+        const suffix = el.dataset.suffix;
+
+        if (!isNaN(target)) {
+          animateCounter(el, target, suffix, 1800);
+        }
+
+        counterObserver.unobserve(el);
+      }
+    });
+  }, { threshold: 0.3 });
+
+  document.querySelectorAll('.highlight-box h3[data-target]').forEach(el => {
+    counterObserver.observe(el);
+  });
+});
+
+
+// ===== FAQ ACCORDION =====
+document.querySelectorAll('.faq-question').forEach(question => {
+  question.addEventListener('click', () => {
+    const item = question.parentElement;
+    const isOpen = item.classList.contains('open');
+
+    // Close all open items
+    document.querySelectorAll('.faq-item.open').forEach(open => {
+      open.classList.remove('open');
+    });
+
+    // Open clicked one if it was closed
+    if (!isOpen) {
+      item.classList.add('open');
+    }
+  });
+});
+
+
+// ===== BACK TO TOP =====
+const backToTop = document.getElementById('backToTop');
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 400) {
+    backToTop.classList.add('visible');
+  } else {
+    backToTop.classList.remove('visible');
+  }
+});
+
+backToTop.addEventListener('click', () => {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
+// ===== ACHIEVEMENTS COUNTER =====
+const achObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const el = entry.target;
+      const target = parseInt(el.dataset.target);
+      const suffix = el.dataset.suffix || '';
+      let start = null;
+
+      const step = timestamp => {
+        if (!start) start = timestamp;
+        const progress = Math.min((timestamp - start) / 2000, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        el.textContent = Math.floor(eased * target) + suffix;
+        if (progress < 1) requestAnimationFrame(step);
+      };
+
+      requestAnimationFrame(step);
+      achObserver.unobserve(el);
+    }
+  });
+}, { threshold: 0.4 });
+
+document.querySelectorAll('.ach-count').forEach(el => {
+  achObserver.observe(el);
+});
