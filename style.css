@@ -1091,6 +1091,11 @@ textarea { height: 120px; resize: none; }
   cursor: pointer;
   padding: 5px;
   z-index: 200;
+  background: none;
+  border: none;
+  outline: none;
+  box-shadow: none;
+  -webkit-appearance: none;
 }
 
 .hamburger span {
