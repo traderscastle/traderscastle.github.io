@@ -150,7 +150,13 @@ buildTicker();
 function injectLoader() {
   const loader = document.createElement('div');
   loader.className = 'page-loader';
-  loader.innerHTML = `<div class="loader-logo">Traders Castle</div>`;
+  loader.innerHTML = `
+    <div class="loader-content">
+      <img src="logoo.png" alt="Traders Castle Logo" class="loader-img">
+      <div class="loader-logo">Traders Castle</div>
+      <div class="loader-tagline">Where Traders Build Their Empire</div>
+    </div>
+  `;
   document.body.insertBefore(loader, document.body.firstChild);
 }
 
