@@ -418,112 +418,70 @@ document.addEventListener('click', (e) => {
 });
 
 
-// ===== ANIMATED COUNTERS =====
-// counting appear for 100+ students and 50+ live session
-function animateCounter(el, target, suffix, duration) {
-  let start = null;
-  const step = timestamp => {
-    if (!start) start = timestamp;
-    const progress = Math.min((timestamp - start) / duration, 1);
-    const eased = 1 - Math.pow(1 - progress, 3);
-    el.textContent = Math.floor(eased * target) + suffix;
-    if (progress < 1) requestAnimationFrame(step);
-  };
-  requestAnimationFrame(step);
-}
 
-window.addEventListener('load', () => {
-  document.querySelectorAll('.highlight-box h3').forEach(el => {
-    const text = el.textContent.trim();
 
-    // Store original value as data attribute
-    if (text === '100+') {
-      el.dataset.target = '100';
-      el.dataset.suffix = '+';
-    } else if (text === '50+') {
-      el.dataset.target = '50';
-      el.dataset.suffix = '+';
-    }
-  });
 
-  const counterObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const el = entry.target;
-        const target = parseInt(el.dataset.target);
-        const suffix = el.dataset.suffix;
+async function initLiveMarket() {
+    const apiKey = 'd7ubphpr01qnv95n0q9gd7ubphpr01qnv95n0qa0'; // Your verified key
+    const priceEl = document.getElementById('gold-price');
+    const changeEl = document.getElementById('gold-change');
 
-        if (!isNaN(target)) {
-          animateCounter(el, target, suffix, 1800);
+    try {
+        // We use the Binance symbol because it's always available for free
+        const response = await fetch(`https://finnhub.io/api/v1/quote?symbol=BINANCE:PAXGUSDT&token=${apiKey}`);
+        const data = await response.json();
+
+        if (priceEl && data.c) {           
+            const standardGoldPrice = parseFloat(data.c);
+           priceEl.innerText = `$${standardGoldPrice.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})}`;
         }
 
-        counterObserver.unobserve(el);
-      }
-    });
-  }, { threshold: 0.3 });
-
-  document.querySelectorAll('.highlight-box h3[data-target]').forEach(el => {
-    counterObserver.observe(el);
-  });
-});
-
-
-// ===== FAQ ACCORDION =====
-document.querySelectorAll('.faq-question').forEach(question => {
-  question.addEventListener('click', () => {
-    const item = question.parentElement;
-    const isOpen = item.classList.contains('open');
-
-    // Close all open items
-    document.querySelectorAll('.faq-item.open').forEach(open => {
-      open.classList.remove('open');
-    });
-
-    // Open clicked one if it was closed
-    if (!isOpen) {
-      item.classList.add('open');
+        if (changeEl && data.d !== undefined) {
+            const isUp = data.d >= 0;
+            // Adjust change and percentage to match the divided price
+            const adjChange = (data.d / 2).toFixed(2);
+            changeEl.innerText = `${isUp ? '▲' : '▼'} ${Math.abs(adjChange)} (${data.dp.toFixed(2)}%)`;
+            
+            // Apply colors
+            changeEl.className = `price-change ${isUp ? 'up' : 'down'}`;
+            changeEl.style.color = isUp ? "#22c55e" : "#ef4444";
+        }
+    } catch (error) {
+        console.error("Live Market Error:", error);
     }
-  });
-});
+}
+
+// Refresh every 5 seconds = 5000 milisecond
+setInterval(initLiveMarket, 5000);
+initLiveMarket();
 
 
-// ===== BACK TO TOP =====
-const backToTop = document.getElementById('backToTop');
-window.addEventListener('scroll', () => {
-  if (window.scrollY > 400) {
-    backToTop.classList.add('visible');
-  } else {
-    backToTop.classList.remove('visible');
-  }
-});
 
-backToTop.addEventListener('click', () => {
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-});
 
-// ===== ACHIEVEMENTS COUNTER =====
-const achObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      const el = entry.target;
-      const target = parseInt(el.dataset.target);
-      const suffix = el.dataset.suffix || '';
-      let start = null;
+// --- IMPROVED FAQ LOGIC ---
+document.addEventListener('DOMContentLoaded', () => {
+    // This finds your questions even if the parent class name is slightly different
+    const questions = document.querySelectorAll('.faq-question');
 
-      const step = timestamp => {
-        if (!start) start = timestamp;
-        const progress = Math.min((timestamp - start) / 2000, 1);
-        const eased = 1 - Math.pow(1 - progress, 3);
-        el.textContent = Math.floor(eased * target) + suffix;
-        if (progress < 1) requestAnimationFrame(step);
-      };
+    questions.forEach(question => {
+        question.addEventListener('click', () => {
+            // Find the parent container (the box)
+            const item = question.closest('.faqitem') || question.closest('.faq-item');
+            
+            if (item) {
+                // Check if it's already open
+                const isOpen = item.classList.contains('active');
 
-      requestAnimationFrame(step);
-      achObserver.unobserve(el);
-    }
-  });
-}, { threshold: 0.4 });
+                // Close all other FAQ boxes first
+                document.querySelectorAll('.faqitem, .faq-item').forEach(el => {
+                    el.classList.remove('active');
+                });
 
-document.querySelectorAll('.ach-count').forEach(el => {
-  achObserver.observe(el);
+                // If it wasn't open, open it now
+                if (!isOpen) {
+                    item.classList.add('active');
+                }
+            }
+        });
+    });
 });
